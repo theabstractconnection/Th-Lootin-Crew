@@ -1,4 +1,4 @@
 class VesselOption < ApplicationRecord
-  has_many :options
-  has_many :vessels
+  belongs_to :option
+  belongs_to :vessel
 end
