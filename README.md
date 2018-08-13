@@ -1,14 +1,10 @@
-#Th' Lootin' Crew
+# Th' Lootin' Crew
 
 
-##Installation
-
+## Installation
+```
 bundle install
-
 rails db:create
-
-rails db:create
-
 rails db:migrate
-
-ralis s
+rails s
+```
