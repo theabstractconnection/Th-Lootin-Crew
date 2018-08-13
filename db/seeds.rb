@@ -7,10 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
+pwd = 'topsecret'
 
-10.times do
-  pwd = Faker::Lorem.characters(10)
-  User.create!(email: Faker::Internet.email, password: pwd, password_confirmation:pwd)
+User.create!(email: Faker::Internet.email, password: pwd, password_confirmation: pwd)
+
+9.times do
+  User.create!(email: Faker::Internet.email, password: pwd, password_confirmation: pwd)
 end
 puts "Users Created"
 
@@ -21,6 +23,6 @@ end
 puts "Options Created"
 
 ["Black Pearl", "Jolly Roger", "Adventure Galley", "Queen Anne's Revenge", "Fancy", "Whydah", "Royal Fortune"].each do |name|
-  Vessel.create(name: name, description:Faker::Lorem.paragraph(5), price: rand(10000), user: User.find(rand(User.count)))
+  Vessel.create!(name: name, description:Faker::Lorem.paragraph(5), price: rand(10000), user: User.first)
 end
 puts "Vessels Created"
