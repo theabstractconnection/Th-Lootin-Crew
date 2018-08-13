@@ -26,3 +26,7 @@ puts "Options Created"
   Vessel.create!(name: name, description:Faker::Lorem.paragraph(5), price: rand(10000), user: User.first)
 end
 puts "Vessels Created"
+
+15.times do
+  VesselOption.create!(vessel:Vessel.find(rand(Vessel.count)+1), option: Option.find(rand(Option.count)+1))
+end
