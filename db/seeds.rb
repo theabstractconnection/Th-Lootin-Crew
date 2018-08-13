@@ -18,15 +18,19 @@ puts "Users Created"
 
 
 ["SUBMACHINE GUNS", "LIGHT MACHINE GUNS", "SNIPER RIFLE", "SHOTGUN", "PISTOL", "LAUNCHER"].each do |name|
-  Option.create!(name: name, description: "Heavy gun's for your pleasure", price: (rand(10)*50)+250 )
+  Option.create!(name: name, description: "Heavy gun's for your pleasure", price: (rand(10) * 50) + 250)
 end
 puts "Options Created"
 
 ["Black Pearl", "Jolly Roger", "Adventure Galley", "Queen Anne's Revenge", "Fancy", "Whydah", "Royal Fortune"].each do |name|
-  Vessel.create!(name: name, description:Faker::Lorem.paragraph(5), price: rand(10000), user: User.first)
+  Vessel.create!(name: name, description: Faker::Lorem.paragraph(5), price: rand(10000), user: User.first)
 end
 puts "Vessels Created"
 
-15.times do
-  VesselOption.create!(vessel:Vessel.find(rand(Vessel.count)+1), option: Option.find(rand(Option.count)+1))
+Vessel.all.each do |vessel|
+  (rand(3) + 2).times do
+    VesselOption.create!(vessel: vessel, option: Option.find(rand(Option.count) + 1))
+  end
 end
+puts "VesselOptions Created"
+
