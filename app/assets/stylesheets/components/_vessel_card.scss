@@ -1,0 +1,40 @@
+
+.vessel-card {
+  padding: 15px;
+  margin: 5px;
+  height: 30vh;
+  border-radius: 5px;
+  box-shadow: 3px 3px 4px rgba(0,0,0,0.1);
+  background-size: cover !important;
+  color: white;
+  position: relative;
+  transition-duration: 1.2s;
+}
+
+
+
+.vessel-card-face {
+  position: absolute;
+  transition-duration: 1.2s;
+}
+
+.vessel-card:hover {
+  transform: scale(1.05, 1.05);
+  .vessel-card-face {
+    opacity: 0;
+  }
+  .vessel-card-back {
+  opacity: 1;
+}
+}
+
+.vessel-card-back {
+  position: absolute;
+  top: 40px;
+  opacity: 0;
+  transition-duration: 1.2s;
+}
+
+.vessel-card-back p {
+  font-size: 16px;
+}

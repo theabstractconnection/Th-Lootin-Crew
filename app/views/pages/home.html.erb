@@ -1,11 +1,10 @@
 <%= render 'shared/banner' %>
 
 <div class="container">
-
-<% @vessels.each do |vessel| %>
-<p>
-  <%= vessel.name %>
-</p>
-<% end %>
-
+  <h1>Our best vessels!</h1>
+  <div class="row">
+    <% @vessels.each do |vessel| %>
+      <%= render 'shared/vessel-card', vessel: vessel %>
+    <% end %>
+  </div>
 </div>
