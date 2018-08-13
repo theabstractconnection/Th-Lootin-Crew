@@ -23,7 +23,10 @@ end
 puts "Options Created"
 
 ["Black Pearl", "Jolly Roger", "Adventure Galley", "Queen Anne's Revenge", "Fancy", "Whydah", "Royal Fortune"].each do |name|
-  Vessel.create!(name: name, description: Faker::Lorem.paragraph(5), price: rand(10000), user: User.first)
+  vessel = Vessel.create!(name: name, description: Faker::Lorem.paragraph(5), price: rand(10000), user: User.first)
+  [3,4,5].sample.times do
+    vessel.reviews.create!(content: Faker::Lorem.sentence(rand(7)+5) ,rating:rand(3)+1)
+  end
 end
 puts "Vessels Created"
 
