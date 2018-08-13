@@ -40,7 +40,7 @@ puts "VesselOptions Created"
   date = DateTime.strptime("09/01/2009 17:00", "%m/%d/%Y %H:%M")
   booking = Booking.create!(user: user, vessel: vessel, start_date: date , end_date: date, status: "pending")
   vessel.options.each do |option|
-    opt = SelectedOption.create!(booking: booking, option: option, quantity: rand(3))
+    SelectedOption.create!(booking: booking, option: option, quantity: rand(3))
   end
 end
 puts "Bookings with SelectedOptions Created"
