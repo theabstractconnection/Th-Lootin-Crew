@@ -10,10 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_13_125636) do
+ActiveRecord::Schema.define(version: 2018_08_13_185250) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "vessel_id"
+    t.date "start_date"
+    t.date "end_date"
+    t.integer "total_price"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "crew_id"
+    t.index ["crew_id"], name: "index_bookings_on_crew_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+    t.index ["vessel_id"], name: "index_bookings_on_vessel_id"
+  end
+
+  create_table "crews", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.date "availability"
+    t.integer "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "options", force: :cascade do |t|
     t.string "name"
@@ -21,6 +45,25 @@ ActiveRecord::Schema.define(version: 2018_08_13_125636) do
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string "content"
+    t.integer "rating"
+    t.bigint "vessel_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["vessel_id"], name: "index_reviews_on_vessel_id"
+  end
+
+  create_table "selected_options", force: :cascade do |t|
+    t.integer "quantity"
+    t.bigint "booking_id"
+    t.bigint "option_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["booking_id"], name: "index_selected_options_on_booking_id"
+    t.index ["option_id"], name: "index_selected_options_on_option_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -59,4 +102,13 @@ ActiveRecord::Schema.define(version: 2018_08_13_125636) do
     t.index ["user_id"], name: "index_vessels_on_user_id"
   end
 
+  add_foreign_key "bookings", "crews"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "bookings", "vessels"
+  add_foreign_key "reviews", "vessels"
+  add_foreign_key "selected_options", "bookings"
+  add_foreign_key "selected_options", "options"
+  add_foreign_key "vessel_options", "options"
+  add_foreign_key "vessel_options", "vessels"
+  add_foreign_key "vessels", "users"
 end
