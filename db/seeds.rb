@@ -16,6 +16,11 @@ User.create!(email: Faker::Internet.email, password: pwd, password_confirmation:
 end
 puts "Users Created"
 
+["The Berserker Bandits", "The Brass Knuckle Plunderers", "The Seven Sails Plunderers", "The Talking Parrot Buccaneers", "The Pillagers of the Squid", "The Pirates of the Lost Shores", "The Pirates of the North Sea", "The Thunder Waves", "The Fishguts", "The Skull and Crossbones"].each do |name|
+  date = DateTime.strptime("09/01/2009 17:00", "%m/%d/%Y %H:%M")
+  Crew.create!(name: name, description: Faker::Lorem.sentence(rand(7)+5), availability: date, rating: rand(3) + 1)
+end
+puts "Crews Created"
 
 ["SUBMACHINE GUNS", "LIGHT MACHINE GUNS", "SNIPER RIFLE", "SHOTGUN", "PISTOL", "LAUNCHER"].each do |name|
   Option.create!(name: name, description: "Heavy gun's for your pleasure", price: (rand(10) * 50) + 250)
@@ -28,7 +33,7 @@ puts "Options Created"
     vessel.reviews.create!(content: Faker::Lorem.sentence(rand(7)+5) ,rating:rand(3)+1)
   end
 end
-puts "Vessels Created"
+puts "Vessels Created with Reviews"
 
 Vessel.all.each do |vessel|
   (rand(3) + 2).times do
@@ -45,5 +50,6 @@ puts "VesselOptions Created"
   vessel.options.each do |option|
     SelectedOption.create!(booking: booking, option: option, quantity: rand(3))
   end
+  booking.crew = Crew.find(rand(Crew.count) + 1)
 end
-puts "Bookings with SelectedOptions Created"
+puts "Bookings Created with SelectedOptions & Crews"
