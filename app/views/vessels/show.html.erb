@@ -1,4 +1,8 @@
 <p id="notice"><%= notice %></p>
 
+<div class="container-fluid">
+  <%= render 'shared/vessel-card', vessel: @vessel %>
+</div>
+
 <%= link_to 'Edit', edit_vessel_path(@vessel) %> |
 <%= link_to 'Back', vessels_path %>
