@@ -7,8 +7,8 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @vessel = Vessel.find(booking_params[:vessel_id])
-    @booking = current_user.bookings.new(booking_params)
+    @vessel = Vessel.find(params[:vessel_id])
+    @booking = current_user.bookings.new(booking_params.merge(vessel: @vessel))
 
     if @booking.save
       redirect_to booking_path(@booking), notice: 'booking was successfully created.'
@@ -25,6 +25,6 @@ class BookingsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :vessel_id)
+    params.require(:booking).permit(:start_date, :end_date, selected_options_attributes: [:option_id, :quantity])
   end
 end

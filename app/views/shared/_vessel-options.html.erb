@@ -1,12 +1,12 @@
 <div>
   <h2>Options</h2>
   <form>
-    <% vessel_options.each do |vessel_option| %>
-    <div>
-      <input type="checkbox" name="<%= vessel_option.option.id %>"/>
+    <% vessel_options.each_with_index do |vessel_option, index| %>
+    <div  id="options">
+      <input data-index=<%= index %> class="opt" type="checkbox" name="<%= vessel_option.option.id %>"/>
       <label for="scales"><%= vessel_option.option.name %></label>
       <span><%= vessel_option.option.description %></span>
-      <input type="text" name="<%= "#{vessel_option.option.id}_quantity" %>""/>
+      <input data-index=<%= index %> class="qty" style="display:none" type="text" name="<%= "#{vessel_option.option.id}_quantity" %>""/>
     </div>
     <% end %>
   </form>
