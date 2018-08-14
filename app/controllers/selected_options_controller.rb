@@ -1,2 +1,0 @@
-class SelectedOptionsController < ApplicationController
-end
