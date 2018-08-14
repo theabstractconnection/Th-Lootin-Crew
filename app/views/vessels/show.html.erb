@@ -16,3 +16,5 @@
 
 <%= link_to 'Edit', edit_vessel_path(@vessel) %> |
 <%= link_to 'Back', vessels_path %>
+
+<%= cl_image_tag @vessel.photo, height: 300, width: 400, crop: :fill %>
