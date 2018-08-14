@@ -30,6 +30,7 @@ puts "Options Created"
 ["Black Pearl", "Jolly Roger", "Adventure Galley", "Queen Anne's Revenge", "Fancy", "Whydah", "Royal Fortune"].each do |name|
   vessel = Vessel.new(name: name, description: Faker::Lorem.paragraph(5), price: rand(10000), user: User.first, lat: Faker::Address.latitude, lng: Faker::Address.longitude )
   vessel.remote_photo_url = 'https://i.pinimg.com/originals/ea/46/7f/ea467f6dc2dfdd48bfb6b57c1099d2a7.jpg'
+  vessel.category = rand(4)
   vessel.save!
   [3,4,5].sample.times do
     vessel.reviews.create!(content: Faker::Lorem.sentence(rand(7)+5) ,rating:rand(3)+1)
