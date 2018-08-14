@@ -57,6 +57,6 @@ class VesselsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def vessel_params
-    params.require(:vessel).permit(:name, :description, :price)
+    params.require(:vessel).permit(:name, :description, :price, :photo, :lat, :lng)
   end
 end
