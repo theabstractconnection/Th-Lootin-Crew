@@ -5,7 +5,7 @@ const qtys = document.querySelectorAll(".qty")
 
 opts.forEach((opt) => {
   opt.addEventListener("click", (e)=>{
-    console.log(e.target.name)
+    // console.log(e.target.name)
     const qty = document.querySelector(`input[name='${e.target.name}_quantity']`)
 
     const i = e.target.dataset.index
@@ -55,9 +55,9 @@ opts.forEach((opt) => {
 
 qtys.forEach((qty) => {
   qty.addEventListener("blur", (e)=>{
-    console.log(e.target.name.split("_")[0])
-    console.log(e.target.dataset.index)
-    console.log(e.target.value)
+    // console.log(e.target.name.split("_")[0])
+    // console.log(e.target.dataset.index)
+    // console.log(e.target.value)
 
     const i = e.target.dataset.index
 
