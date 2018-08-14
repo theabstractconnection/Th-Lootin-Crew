@@ -3,9 +3,10 @@
   <div class="row">
     <div class="col col-xs-12 col-sm-6 col-md-8">
       <%= render 'shared/vessel-options', vessel_options: @vessel_options %>
+      <%= render 'shared/crews', crews: @crews %>
     </div>
     <div class="col col-xs-12 col-sm-6 col-md-4">
-      <%= render 'shared/booking-form', vessel: @vessel, booking: @booking %>
+      <%= render 'shared/booking-form', vessel: @vessel, booking: @booking%>
     </div>
   </div>
 </div>
@@ -15,3 +16,4 @@
 <%= link_to 'Edit', edit_vessel_path(@vessel) %> |
 <%= link_to 'Back', vessels_path %>
 
+<%= javascript_pack_tag 'selected_options' %>
