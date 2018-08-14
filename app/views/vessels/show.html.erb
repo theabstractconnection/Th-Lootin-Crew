@@ -1,6 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <%= render 'shared/vessel-card-wide', vessel: @vessel %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col col-xs-12 col-sm-6 col-md-8">
+      <%= render 'shared/vessel-options', vessel_options: @vessel_options %>
+    </div>
+    <div class="col col-xs-12 col-sm-6 col-md-4">
+      <%= render 'shared/booking-form', vessel: @vessel, booking: @booking %>
+    </div>
+  </div>
+</div>
+
+
 
 <%= link_to 'Edit', edit_vessel_path(@vessel) %> |
 <%= link_to 'Back', vessels_path %>

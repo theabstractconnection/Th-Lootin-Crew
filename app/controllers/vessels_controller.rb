@@ -1,5 +1,6 @@
 class VesselsController < ApplicationController
   before_action :set_vessel, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   # GET /vessels
   def index
@@ -8,6 +9,8 @@ class VesselsController < ApplicationController
 
   # GET /vessels/1
   def show
+    @vessel_options = VesselOption.where(vessel: @vessel.id)
+    @booking = Booking.new
   end
 
   # GET /vessels/new
@@ -21,14 +24,13 @@ class VesselsController < ApplicationController
 
   # POST /vessels
   def create
-    @vessel = Vessel.new(vessel_params)
+    @vessel = current_user.vessels.new(vessel_params)
 
     if @vessel.save
       redirect_to @vessel, notice: 'Vessel was successfully created.'
     else
       render :new
     end
-
   end
 
   # PATCH/PUT /vessels/1

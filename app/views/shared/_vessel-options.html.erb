@@ -1,0 +1,11 @@
+<div>
+<h2>Options</h2>
+<% vessel_options.each do |vessel_option| %>
+  <form>
+    <input type="checkbox" name="<%= vessel_option.option.id %>"/>
+    <label for="scales"><%= vessel_option.option.name %></label>
+    <span><%= vessel_option.option.description %></span>
+    <input type="text" name="<%= "#{vessel_option.option.id}_quantity" %>""/>
+  </form>
+<% end %>
+</div>
