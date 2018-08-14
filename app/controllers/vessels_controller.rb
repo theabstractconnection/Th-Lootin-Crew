@@ -12,6 +12,7 @@ class VesselsController < ApplicationController
     @crews = Crew.all
     @vessel_options = VesselOption.where(vessel: @vessel)
     @booking = Booking.new
+    @booking.selected_options.build
   end
 
   # GET /vessels/new

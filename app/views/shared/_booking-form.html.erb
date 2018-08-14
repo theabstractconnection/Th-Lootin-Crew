@@ -1,6 +1,7 @@
-<%= simple_form_for booking do |f| %>
-  <%= f.input :vessel_id, :as => :hidden, :input_html => { :value => vessel.id } %>
+<%= simple_form_for [vessel,booking] do |f| %>
   <%= f.input :start_date, required: true %>
   <%= f.input :end_date, required: true %>
+
+
   <%= f.button :submit, "Book this Vessel"%>
 <% end %>
