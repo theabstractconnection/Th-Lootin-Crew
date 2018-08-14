@@ -9,7 +9,7 @@ class VesselsController < ApplicationController
 
   # GET /vessels/1
   def show
-    @vessel_options = VesselOption.where(vessel: @vessel.id)
+    @vessel_options = VesselOption.where(vessel: @vessel)
     @booking = Booking.new
   end
 
