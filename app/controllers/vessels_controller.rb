@@ -25,7 +25,8 @@ class VesselsController < ApplicationController
   # POST /vessels
   def create
     @vessel = current_user.vessels.new(vessel_params)
-
+    city = params[:city]
+    geocode_vessel(@vessel, city)
     if @vessel.save
       redirect_to @vessel, notice: 'Vessel was successfully created.'
     else
@@ -58,5 +59,10 @@ class VesselsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def vessel_params
     params.require(:vessel).permit(:name, :description, :price, :photo, :photo_cache, :lat, :lng)
+  end
+
+  def geocode_vessel(vessel, city)
+    @vessel.lat = rand(90)
+    @vessel.lng = rand(90)
   end
 end

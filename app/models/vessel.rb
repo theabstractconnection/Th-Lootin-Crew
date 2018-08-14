@@ -1,4 +1,6 @@
 class Vessel < ApplicationRecord
+  attr_accessor :city
+
   mount_uploader :photo, PhotoUploader
 
   belongs_to :user
