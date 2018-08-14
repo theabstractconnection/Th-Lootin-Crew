@@ -50,7 +50,7 @@ puts "VesselOptions Created"
   date = DateTime.strptime("09/01/2009 17:00", "%m/%d/%Y %H:%M")
   booking = Booking.create!(user: user, vessel: vessel, start_date: date , end_date: date, status: "pending")
   vessel.options.each do |option|
-    SelectedOption.create!(booking: booking, option: option, quantity: rand(3))
+    booking.selected_options.create!(booking: booking, option: option, quantity: rand(3))
   end
   booking.crew = Crew.find(rand(Crew.count) + 1)
 end

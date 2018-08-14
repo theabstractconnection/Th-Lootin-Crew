@@ -1,4 +1,10 @@
 <div>
   <div><%= @booking.vessel.name %></div>
   <div><%= @booking.user.email %></div>
+  <div>
+    <% @booking.selected_options.each do |se| %>
+      <div><%= Option.find(se.option_id).name %></div>
+      <div><%= se.quantity%></div>
+    <% end %>
+  </div>
 </div>
