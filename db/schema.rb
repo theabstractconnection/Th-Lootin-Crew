@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_14_102405) do
+ActiveRecord::Schema.define(version: 2018_08_14_155607) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -103,6 +103,7 @@ ActiveRecord::Schema.define(version: 2018_08_14_102405) do
     t.float "lat"
     t.float "lng"
     t.integer "rating"
+    t.integer "category"
     t.index ["user_id"], name: "index_vessels_on_user_id"
   end
 

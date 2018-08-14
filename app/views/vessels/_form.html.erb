@@ -2,6 +2,7 @@
   <div class="form-inputs">
     <%= f.input :name %>
     <%= f.input :description %>
+    <%= f.input :category, collection: Vessel.categories.keys %>
     <%= f.input :price %>
 <!--     <label for="city">Vessel city location</label>
     <input name = "city" class = "form-control" type = "text" placeholder="enter city" required> -->

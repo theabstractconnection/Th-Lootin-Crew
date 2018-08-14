@@ -107,10 +107,10 @@
 <default>NULL</default><relation table="Crews" row="id" />
 </row>
 <row name="start_date" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
+<datatype>DATE</datatype>
 <default>NULL</default></row>
 <row name="end_date" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
+<datatype>DATE</datatype>
 <default>NULL</default></row>
 <row name="total_price" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
