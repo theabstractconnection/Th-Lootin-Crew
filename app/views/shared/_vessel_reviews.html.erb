@@ -1,0 +1,13 @@
+<div class="reviews">
+  <h4>Reviews</h4>
+  <% vessel.reviews.each do |review|%>
+  <div class="review">
+    <span><%= review.content %></span>
+    <% review.rating.to_i.times do %>
+    <i class="far fa-star"></i>
+    <% end %>
+  </div>
+  <% end %>
+</div>
+<%= render 'shared/review-form', vessel: vessel, review: review %>
+</div>
