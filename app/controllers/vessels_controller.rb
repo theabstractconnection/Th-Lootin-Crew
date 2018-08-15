@@ -1,3 +1,5 @@
+require 'httparty'
+
 class VesselsController < ApplicationController
   before_action :set_vessel, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
@@ -28,12 +30,19 @@ class VesselsController < ApplicationController
   # POST /vessels
   def create
     @vessel = current_user.vessels.new(vessel_params)
-    city = params[:city]
-    geocode_vessel(@vessel, city)
+    city = vessel_params[:city]
+    g_code = geocode(city)
+    if g_code
+      @vessel.lat = g_code[:lat]
+      @vessel.lng = g_code[:lng]
+    else
+      redirect_to new_vessel_path, notice:"We can't Geocode this city... Try Again"  and return
+    end
+
     if @vessel.save
       redirect_to @vessel, notice: 'Vessel was successfully created.'
     else
-      render :new
+      render :new, notice:"Something Went Wrong... Try Again"
     end
   end
 
@@ -61,11 +70,14 @@ class VesselsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def vessel_params
-    params.require(:vessel).permit(:name, :description, :price, :photo, :photo_cache, :lat, :lng, :category)
+    params.require(:vessel).permit(:name, :description, :price, :photo, :photo_cache, :category, :city)
   end
 
-  def geocode_vessel(vessel, city)
-    @vessel.lat = rand(90)
-    @vessel.lng = rand(90)
+  def geocode(city)
+    baseUrl = "https://maps.googleapis.com/maps/api/geocode/json?address="
+    response = HTTParty.get(baseUrl+city).parsed_response.deep_symbolize_keys
+    result = response[:results].first
+    unless result then return nil end
+    {lat: result[:geometry][:location][:lat], lng: result[:geometry][:location][:lng]}
   end
 end
