@@ -5,6 +5,15 @@ class VesselsController < ApplicationController
   # GET /vessels
   def index
     @vessels = Vessel.all
+    @vessels_map = Vessel.where.not(latitude: nil, longitude: nil)
+
+    @markers = @vessels_map.map do |vessel|
+      {
+        lat: vessel.latitude,
+        lng: vessel.longitude#,
+        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+      }
+    end
   end
 
   # GET /vessels/1
@@ -28,14 +37,14 @@ class VesselsController < ApplicationController
   # POST /vessels
   def create
     @vessel = current_user.vessels.new(vessel_params)
-    address = vessel_params[:address]
-    g_code = geocode(address)
-    if g_code
-      @vessel.latitude = g_code[:latitude]
-      @vessel.longitude = g_code[:longitude]
-    else
-      redirect_to new_vessel_path, notice:"We can't Geocode this city... Try Again"  and return
-    end
+    # address = vessel_params[:address]
+    # g_code = geocode(address)
+    # if g_code
+    #   @vessel.latitude = g_code[:latitude]
+    #   @vessel.longitude = g_code[:longitude]
+    # else
+    #   redirect_to new_vessel_path, notice:"We can't Geocode this city... Try Again"  and return
+    # end
 
     if @vessel.save
       redirect_to @vessel, notice: 'Vessel was successfully created.'
@@ -71,12 +80,4 @@ class VesselsController < ApplicationController
     params.require(:vessel).permit(:name, :description, :price, :photo, :photo_cache, :category, :address)
   end
 
-  def geocode(address)
-    # baseUrl = "https://maps.googleapis.com/maps/api/geocode/json?address="
-    # response = HTTParty.get(baseUrl+address).parsed_response.deep_symbolize_keys
-    # result = response[:results].first
-    # unless result then return nil end
-    # {latitude: result[:geometry][:location][:lat], longitude: result[:geometry][:location][:lng]}
-    {latitude: 0, longitude: 0}
-  end
 end

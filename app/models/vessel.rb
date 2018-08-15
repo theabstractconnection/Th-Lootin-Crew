@@ -14,7 +14,7 @@ class Vessel < ApplicationRecord
   validates :name, presence: true
   validates :description, presence: true
   validates :price, presence: true
-  # validates :photo, presence: true
+  validates :photo, presence: true
   validates :rating, inclusion: { in: [0, 1, 2 , 3, 4, 5, nil] }
   validates :category, presence: true
   validates :address, presence: true
