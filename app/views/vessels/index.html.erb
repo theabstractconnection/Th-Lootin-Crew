@@ -1,21 +1,11 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col col-xs-12 col-sm-6 col-md-8">
-      <h1>All our Vessels</h1>
-      <div class="row">
-        <% @vessels.each do |vessel| %>
+<div class="main-container">
+  <div class="container">
+    <h1>All our Vessels</h1>
+    <div class="row">
+      <% @vessels.each do |vessel| %>
         <%= render 'shared/vessel-card', vessel: vessel %>
-        <% end %>
-      </div>
-    </div>
-    <div class="col col-xs-12 col-sm-6 col-md-4">
-      <!-- <div class="map" id="map" style="background-image: url(http://via.placeholder.com/500x500)"></div> -->
-      <div
-        id="map"
-        style="width: 100%;
-        height: 600px;"
-        data-markers="<%= @markers.to_json %>"
-      ></div>
+      <% end %>
     </div>
   </div>
+  <div id="map" data-markers="<%= @markers.to_json %>"></div>
 </div>
