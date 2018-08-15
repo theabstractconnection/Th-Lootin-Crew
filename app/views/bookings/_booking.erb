@@ -1,0 +1,8 @@
+<div class="booking">
+  <h2>Booking</h2>
+  <%= render 'bookings/form', vessel: vessel, booking: booking%>
+  <%= render 'vessel-options/show',
+    vessel: vessel,
+    vessel_options: vessel_options %>
+  <%= render 'crews/show', vessel: vessel, crews: crews%>
+</div>

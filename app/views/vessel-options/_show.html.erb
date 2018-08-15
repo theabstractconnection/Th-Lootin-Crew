@@ -1,5 +1,7 @@
-<div>
+<div class="vessel_options">
   <h2>Options</h2>
+  <% if  current_user != @vessel.user%>
+
   <form>
     <% vessel_options.each_with_index do |vessel_option, index| %>
     <div  class="options" data-index=<%= index %>>
@@ -14,4 +16,21 @@
     </div>
     <% end %>
   </form>
+
+  <% else %>
+
+  <form>
+    <% vessel_options.each do |vessel_option| %>
+    <div class="options">
+      <span><%= vessel_option.option.name %></span>
+      <span><%= vessel_option.option.description %></span>
+      <%= link_to "Delete", vessel_vessel_option_path(vessel_option.vessel, vessel_option),
+      method: :delete,
+      data: { confirm: "Are you sure?" } , class: "btn btn-danger"%>
+    </div>
+    <% end %>
+  </form>
+
+  <%= render 'vessel-options/form', vessel: vessel, vessel_option: vessel_option%>
+  <% end %>
 </div>
