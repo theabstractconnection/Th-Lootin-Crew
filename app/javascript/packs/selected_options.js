@@ -37,7 +37,6 @@ opts.forEach((opt) => {
       selectors.forEach((v) => {
         el = document.querySelector(v)
         el.parentNode.removeChild(el)
-
       })
       // i_o = document.querySelector(`input[name='booking[selected_options_attributes][${i}][option_id]']`)
       // i_q = document.querySelector(`input[name='booking[selected_options_attributes][${i}][quantity]']`)
@@ -54,7 +53,7 @@ opts.forEach((opt) => {
 
 
 qtys.forEach((qty) => {
-  qty.addEventListener("blur", (e)=>{
+  qty.addEventListener("change", (e)=>{
     // console.log(e.target.name.split("_")[0])
     // console.log(e.target.dataset.index)
     // console.log(e.target.value)
@@ -66,7 +65,42 @@ qtys.forEach((qty) => {
 
     i_o.value = e.target.name.split("_")[0]
     i_q.value = e.target.value
+    updateprice()
   })
 })
 
+const price = document.querySelector('#price')
+const vessel_price = document.querySelector('#vessel_price')
 
+const start1 = document.querySelector('select#booking_start_date_1i')
+const end1 = document.querySelector('select#booking_end_date_1i')
+const start2 = document.querySelector('select#booking_start_date_2i')
+const end2 = document.querySelector('select#booking_end_date_2i')
+const start3 = document.querySelector('select#booking_start_date_3i')
+const end3 = document.querySelector('select#booking_end_date_3i')
+
+
+function updateprice() {
+  let e = new Date(end1.value ,end2.value ,end3.value);
+  let s =  new Date(start1.value ,start2.value ,start3.value);
+
+  let timeDiff = Math.abs(e.getTime() - s.getTime());
+  let diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+
+  let opts_price = Array.from(qtys).map((qty) => {
+    return qty.dataset.price * qty.value
+  })
+  opts_price =  opts_price.reduce((a, v) => a + v, 0)
+  console.log(opts_price)
+  total_price = (diffDays * vessel_price.innerHTML) + opts_price;
+  price.innerHTML =  `${total_price} $`
+}
+
+
+
+
+[start1,start2,start3,end1,end2,end3].forEach((el) => {
+  el.addEventListener('change', (e) => {
+    updateprice()
+  })
+})
