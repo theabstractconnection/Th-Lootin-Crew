@@ -1,11 +1,11 @@
 require 'faker'
 
 pwd = 'topsecret'
-cities = ["Eyl", "Raqqa" ]
+cities = ["Eyl", "Raqqa", "Bordeaux", "Atlanta" ]
 crews = ["The Berserker Bandits", "The Brass Knuckle Plunderers", "The Seven Sails Plunderers", "The Talking Parrot Buccaneers", "The Pillagers of the Squid", "The Pirates of the Lost Shores", "The Pirates of the North Sea", "The Thunder Waves", "The Fishguts", "The Skull and Crossbones"]
 options = ["SUBMACHINE GUNS", "LIGHT MACHINE GUNS", "SNIPER RIFLE", "SHOTGUN", "PISTOL", "LAUNCHER"]
 vessels = ["Black Pearl", "Jolly Roger", "Adventure Galley", "Queen Anne's Revenge", "Fancy", "Whydah", "Royal Fortune"]
-
+img= ['https://i.pinimg.com/originals/ea/46/7f/ea467f6dc2dfdd48bfb6b57c1099d2a7.jpg', 'https://splash247.com/wp-content/uploads/2017/08/fugro-saltire.jpg', 'https://upload.wikimedia.org/wikipedia/commons/2/2f/USS_Constitution_underway%2C_August_19%2C_2012_by_Castle_Island_cropped.jpg', 'https://cloud.lovinmalta.com/images/uploads/2016/08/_blogWide/old-vessel.png?mtime=20160803085951']
 
 10.times do
   User.create!(
@@ -42,7 +42,7 @@ vessels.each do |name|
     price: rand(10000),
     user: User.first,
     address: cities.sample )
-  vessel.remote_photo_url = 'https://i.pinimg.com/originals/ea/46/7f/ea467f6dc2dfdd48bfb6b57c1099d2a7.jpg'
+  vessel.remote_photo_url = img.sample
 
   vessel.save!
   [3,4,5].sample.times do
