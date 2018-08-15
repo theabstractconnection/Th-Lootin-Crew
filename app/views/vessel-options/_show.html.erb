@@ -1,5 +1,5 @@
 <div class="vessel_options">
-  <h2>Options</h2>
+  <h3>Options</h3>
   <% if  current_user != @vessel.user%>
 
   <form>
@@ -7,7 +7,7 @@
     <div  class="options" data-index=<%= index %>>
       <input data-index=<%= index %> class="opt" type="checkbox" name="<%= vessel_option.option.id %>"/>
       <label for="scales"><%= vessel_option.option.name %></label>
-      <span><%= vessel_option.option.description %> : </span>
+      <div><%= vessel_option.option.description %> : </div>
       <span ><%= vessel_option.option.price %></span><span> $</span>
 
       <div style="display: inline-block;">
