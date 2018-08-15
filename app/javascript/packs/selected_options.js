@@ -93,14 +93,12 @@ function updateprice() {
   opts_price =  opts_price.reduce((a, v) => a + v, 0)
   console.log(opts_price)
   total_price = (diffDays * vessel_price.innerHTML) + opts_price;
-  price.innerHTML =  `${total_price} $`
+  price.innerHTML =  `${total_price}`
 }
 
-
-
-
+//todo catch errors
 [start1,start2,start3,end1,end2,end3].forEach((el) => {
-  el.addEventListener('change', (e) => {
-    updateprice()
-  })
+    el.addEventListener('change', (e) => {
+      updateprice()
+    })
 })
