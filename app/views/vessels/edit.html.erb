@@ -1,6 +1,10 @@
-<h1>Editing Vessel</h1>
-
-<%= render 'form', vessel: @vessel %>
-
-<%= link_to 'Show', @vessel %> |
-<%= link_to 'Back', vessels_path %>
+<div class="container-fluid">
+  <div class="row padded">
+    <div class="col col-xs-12">
+      <h1>Editing Vessel</h1>
+      <%= render 'form', vessel: @vessel %>
+      <%= link_to 'Show', @vessel %> |
+      <%= link_to 'Back', vessels_path %>
+    </div>
+  </div>
+</div>

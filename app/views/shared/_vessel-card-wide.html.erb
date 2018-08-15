@@ -5,4 +5,9 @@
     <span id="vessel_price"><%= vessel.price %></span>
     <span>$/Day</span>
   </div>
+  <div class="vessel_review">
+    <% vessel.rating.to_i.times do %>
+    <i class="far fa-star"></i>
+    <% end %>
+  </div>
 </div>
