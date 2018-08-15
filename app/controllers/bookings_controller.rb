@@ -10,7 +10,6 @@ class BookingsController < ApplicationController
     @vessel = Vessel.find(params[:vessel_id])
     @booking = current_user.bookings.new(booking_params.merge(vessel: @vessel))
     set_price(@booking)
-    byebug
     if @booking.save
       redirect_to booking_path(@booking), notice: 'booking was successfully created.'
     else
