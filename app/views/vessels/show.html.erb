@@ -1,9 +1,8 @@
-<div class="container">
   <%= render 'shared/vessel-card-wide', vessel: @vessel %>
 
   <% if current_user != @vessel.user %>
   <div class="container-fluid">
-    <div class="row">
+    <div class="row padded">
       <div class="col col-xs-12 col-sm-6 col-md-8">
         <%= render 'shared/vessel-options', vessel_options: @vessel_options %>
         <%= render 'shared/crews', crews: @crews %>
@@ -13,7 +12,7 @@
       </div>
 
     </div>
-    <div class="row">
+    <div class="row padded">
       <div class="col col-xs-12">
         <%= render 'shared/vessel-reviews', vessel: @vessel, review: @review%>
       </div>
@@ -21,13 +20,13 @@
   </div>
   <% else %>
   <div class="container-fluid">
-    <div class="row">
+    <div class="row padded">
       <div class="col col-xs-12">
         <%= render 'shared/vessel-options-edit', vessel_options: @vessel_options %>
         <%= render 'shared/vessel-options-form', vessel: @vessel, vessel_option: @vessel_option %>
       </div>
     </div>
-    <div class="row">
+    <div class="row padded">
       <div class="col col-xs-12">
         <%= render 'shared/vessel-reviews', vessel: @vessel, review: @review%>
       </div>
@@ -41,4 +40,3 @@
 
   <%= javascript_pack_tag 'selected_options' %>
 
-</div>
