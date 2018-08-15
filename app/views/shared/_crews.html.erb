@@ -2,7 +2,14 @@
   <h2>Available Crews</h2>
   <div>
     <% crews.each do |crew| %>
-    <div><%= crew.name %></div>
-    <% end %>
+      <div class="review">
+        <span><%= crew.name %></span>
+        <% crew.rating.to_i.times do %>
+        <i class="far fa-star"></i>
+        <% end %>
+      </div>
+      <% end %>
   </div>
 </div>
+
+
