@@ -15,6 +15,7 @@
     <div class="row padded">
       <div class="col col-xs-12">
         <%= render 'shared/vessel-reviews', vessel: @vessel, review: @review%>
+        <%= render 'shared/review-form', vessel: @vessel, review: @review %>
       </div>
     </div>
   </div>
@@ -28,7 +29,9 @@
     </div>
     <div class="row padded">
       <div class="col col-xs-12">
-        <%= render 'shared/vessel-reviews', vessel: @vessel, review: @review%>
+        <% if @vessel.reviews.present? %>
+          <%= render 'shared/vessel-reviews', vessel: @vessel, review: @review%>
+        <% end %>
       </div>
     </div>
   </div>
