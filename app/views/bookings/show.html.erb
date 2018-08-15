@@ -1,10 +1,11 @@
 <div>
-  <div><%= @booking.vessel.name %></div>
-  <div><%= @booking.user.email %></div>
+  <div>Vessel: <%= @booking.vessel.name %></div>
+  <div>User: <%= @booking.user.email %></div>
+  <div>Price: <%= @booking.price %> $</div>
   <div>
     <% @booking.selected_options.each do |se| %>
-      <div><%= Option.find(se.option_id).name %></div>
-      <div><%= se.quantity%></div>
+      <div>Option: <%= Option.find(se.option_id).name %></div>
+      <div>Quantity: <%= se.quantity%></div>
     <% end %>
   </div>
 </div>

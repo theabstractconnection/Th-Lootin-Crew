@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2018_08_14_155607) do
     t.date "end_date"
     t.integer "total_price"
     t.string "status"
+    t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "crew_id"

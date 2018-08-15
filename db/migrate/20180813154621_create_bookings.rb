@@ -7,6 +7,7 @@ class CreateBookings < ActiveRecord::Migration[5.2]
       t.date :end_date
       t.integer :total_price
       t.string :status
+      t.integer :price
 
       t.timestamps
     end
