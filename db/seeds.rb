@@ -41,7 +41,7 @@ vessels.each do |name|
     category: rand(4),
     price: rand(10000),
     user: User.first,
-    city: cities.sample )
+    address: cities.sample )
   vessel.remote_photo_url = 'https://i.pinimg.com/originals/ea/46/7f/ea467f6dc2dfdd48bfb6b57c1099d2a7.jpg'
 
   vessel.save!

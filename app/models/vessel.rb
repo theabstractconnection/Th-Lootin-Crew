@@ -1,6 +1,4 @@
 class Vessel < ApplicationRecord
-  attr_accessor :city
-
   mount_uploader :photo, PhotoUploader
 
   belongs_to :user
@@ -19,5 +17,6 @@ class Vessel < ApplicationRecord
   validates :photo, presence: true
   validates :rating, inclusion: { in: [0, 1, 2 , 3, 4, 5, nil] }
   validates :category, presence: true
+  validates :address, presence: true
 
 end

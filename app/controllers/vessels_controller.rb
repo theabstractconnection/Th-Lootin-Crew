@@ -1,5 +1,3 @@
-require 'httparty'
-
 class VesselsController < ApplicationController
   before_action :set_vessel, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
@@ -30,11 +28,11 @@ class VesselsController < ApplicationController
   # POST /vessels
   def create
     @vessel = current_user.vessels.new(vessel_params)
-    city = vessel_params[:city]
-    g_code = geocode(city)
+    address = vessel_params[:address]
+    g_code = geocode(address)
     if g_code
-      @vessel.lat = g_code[:lat]
-      @vessel.lng = g_code[:lng]
+      @vessel.latitude = g_code[:latitude]
+      @vessel.longitude = g_code[:longitude]
     else
       redirect_to new_vessel_path, notice:"We can't Geocode this city... Try Again"  and return
     end
@@ -70,14 +68,15 @@ class VesselsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def vessel_params
-    params.require(:vessel).permit(:name, :description, :price, :photo, :photo_cache, :category, :city)
+    params.require(:vessel).permit(:name, :description, :price, :photo, :photo_cache, :category, :address)
   end
 
-  def geocode(city)
-    baseUrl = "https://maps.googleapis.com/maps/api/geocode/json?address="
-    response = HTTParty.get(baseUrl+city).parsed_response.deep_symbolize_keys
-    result = response[:results].first
-    unless result then return nil end
-    {lat: result[:geometry][:location][:lat], lng: result[:geometry][:location][:lng]}
+  def geocode(address)
+    # baseUrl = "https://maps.googleapis.com/maps/api/geocode/json?address="
+    # response = HTTParty.get(baseUrl+address).parsed_response.deep_symbolize_keys
+    # result = response[:results].first
+    # unless result then return nil end
+    # {latitude: result[:geometry][:location][:lat], longitude: result[:geometry][:location][:lng]}
+    {latitude: 0, longitude: 0}
   end
 end
