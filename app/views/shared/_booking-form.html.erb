@@ -1,8 +1,10 @@
-<div id="price"></div>
+
 <%= simple_form_for [vessel,booking] do |f| %>
   <%= f.input :start_date, required: true %>
   <%= f.input :end_date, required: true %>
-
-
-  <%= f.button :submit, "Book this Vessel"%>
+  <div class="center">
+    <span id="price">0</span>
+    <span>$</span>
+  </div>
+  <%= f.button :submit, "Book this Vessel", class: "btn btn-danger btn-block"%>
 <% end %>

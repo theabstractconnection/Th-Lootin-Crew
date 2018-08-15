@@ -2,12 +2,15 @@
   <h2>Options</h2>
   <form>
     <% vessel_options.each_with_index do |vessel_option, index| %>
-    <div  id="options" data-index=<%= index %>>
+    <div  class="options" data-index=<%= index %>>
       <input data-index=<%= index %> class="opt" type="checkbox" name="<%= vessel_option.option.id %>"/>
       <label for="scales"><%= vessel_option.option.name %></label>
-      <span><%= vessel_option.option.description %></span>
-      <input data-index=<%= index %> data-price=<%= vessel_option.option.price %> class="qty" style="display:none" type="text" name="<%= "#{vessel_option.option.id}_quantity" %>""/>
+      <span><%= vessel_option.option.description %> : </span>
       <span ><%= vessel_option.option.price %></span><span> $</span>
+
+      <div style="display: inline-block;">
+        <input data-index=<%= index %> data-price=<%= vessel_option.option.price %> class="qty" style="display:none" type="text" name="<%= "#{vessel_option.option.id}_quantity" %>""/>
+      </div>
     </div>
     <% end %>
   </form>
