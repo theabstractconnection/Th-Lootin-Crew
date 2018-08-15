@@ -11,6 +11,7 @@ class VesselsController < ApplicationController
   def show
     @crews = Crew.all
     @vessel_options = VesselOption.where(vessel: @vessel)
+    @vessel_option = VesselOption.new
     @booking = Booking.new
     @review = Review.new
     @booking.selected_options.build
@@ -23,6 +24,7 @@ class VesselsController < ApplicationController
 
   # GET /vessels/1/edit
   def edit
+
   end
 
   # POST /vessels
