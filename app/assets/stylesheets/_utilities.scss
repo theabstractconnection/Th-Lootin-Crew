@@ -28,5 +28,33 @@
 }
 
 .options{
-  padding: 0.2em;
+}
+
+.reviews{
+  padding: 6em 2em;
+}
+
+#booking{
+  padding: 2em;
+  position: relative;
+  h2{
+    padding: 1.2em;
+    padding-left: 0;
+  }
+  h3{
+    padding: 0.8em;
+    padding-left: 0;
+  }
+  #price{
+    position: absolute;
+    top: 149px;
+    text-align: center;
+    right: 5.2em;
+    background-color: #EE5F5B;
+    border-color: #ec4844;
+    padding: 0.8em 2em;
+  }
+  #booking-form{
+
+  }
 }

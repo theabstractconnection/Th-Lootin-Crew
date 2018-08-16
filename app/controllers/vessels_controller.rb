@@ -18,7 +18,7 @@ class VesselsController < ApplicationController
 
   # GET /vessels/1
   def show
-    @crews = Crew.all
+    @crews = Crew.first(3)
     @vessel_options = VesselOption.where(vessel: @vessel)
     @vessel_option = VesselOption.new
     @booking = Booking.new

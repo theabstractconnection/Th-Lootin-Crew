@@ -1,45 +1,27 @@
-<%= render 'shared/vessel-card-wide', vessel: @vessel %>
+<%= render 'card-banner', vessel: @vessel %>
 
-<% if current_user != @vessel.user %>
 <div class="container-fluid">
   <div class="row padded">
-    <div class="col col-xs-12 col-sm-6 col-md-8">
-      <%= render 'shared/vessel-options', vessel_options: @vessel_options %>
-      <%= render 'shared/crews', crews: @crews %>
-    </div>
-    <div class="col col-xs-12 col-sm-6 col-md-4">
-      <%= render 'shared/booking-form', vessel: @vessel, booking: @booking%>
-    </div>
-
+    <% if current_user == @vessel.user %>
+      <%= render 'vessels/configure',
+        vessel: @vessel,
+        vessel_options: @vessel_options,
+        vessel_option: @vessel_option %>
+    <% else %>
+      <%= render 'vessels/booking',
+      vessel: @vessel,
+      booking: @booking,
+      vessel_options: @vessel_options,
+      crews: @crews %>
+    <% end %>
   </div>
   <div class="row padded">
-    <div class="col col-xs-12">
-      <%= render 'shared/vessel-reviews', vessel: @vessel, review: @review%>
-      <%= render 'shared/review-form', vessel: @vessel, review: @review %>
-    </div>
+    <%= render 'vessels/reviews', vessel: @vessel%>
   </div>
 </div>
-<% else %>
-<div class="container-fluid">
-  <div class="row padded">
-    <div class="col col-xs-12">
-      <%= render 'shared/vessel-options-edit', vessel_options: @vessel_options %>
-      <%= render 'shared/vessel-options-form', vessel: @vessel, vessel_option: @vessel_option %>
-    </div>
-  </div>
-  <div class="row padded">
-    <div class="col col-xs-12">
-      <% if @vessel.reviews.present? %>
-      <%= render 'shared/vessel-reviews', vessel: @vessel, review: @review%>
-      <% end %>
-    </div>
-  </div>
-</div>
-<% end %>
 
 <div class="links">
   <%= link_to 'Back', vessels_path, class: "btn btn-danger" %>
 </div>
 
 <%= javascript_pack_tag 'selected_options' %>
-

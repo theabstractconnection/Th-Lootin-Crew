@@ -79,7 +79,7 @@ const end2 = document.querySelector('select#booking_end_date_2i')
 const start3 = document.querySelector('select#booking_start_date_3i')
 const end3 = document.querySelector('select#booking_end_date_3i')
 
-
+// todo update price should make api call to upddate price helper
 function updateprice() {
   let e = new Date(end1.value ,end2.value ,end3.value);
   let s =  new Date(start1.value ,start2.value ,start3.value);
@@ -96,7 +96,7 @@ function updateprice() {
   price.innerHTML =  `${total_price}`
 }
 
-//todo catch errors
+// todo make script tag conditional depending on user.vessel = vessel
 [start1,start2,start3,end1,end2,end3].forEach((el) => {
     el.addEventListener('change', (e) => {
       updateprice()
