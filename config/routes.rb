@@ -8,5 +8,8 @@ Rails.application.routes.draw do
       resources :selected_options
     end
   end
+
+  post "query" => "search_results#query"
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

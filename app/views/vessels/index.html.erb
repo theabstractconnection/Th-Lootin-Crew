@@ -3,7 +3,7 @@
     <h1>All our Vessels</h1>
     <div class="row">
       <% @vessels.each do |vessel| %>
-        <%= render 'card', vessel: vessel %>
+        <%= render 'vessels/card', vessel: vessel %>
       <% end %>
     </div>
   </div>
