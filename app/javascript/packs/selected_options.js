@@ -94,7 +94,7 @@ function updateprice() {
   opts_price =  opts_price.reduce((a, v) => a + v, 0)
   console.log(opts_price)
   total_price = (diffDays * vessel_price.innerHTML) + opts_price;
-  price.innerHTML =  `${total_price}`
+  price.innerHTML =  `${total_price} $`
 }
 
 // todo make script tag conditional depending on user.vessel = vessel
