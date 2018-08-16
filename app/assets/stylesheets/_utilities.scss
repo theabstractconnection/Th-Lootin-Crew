@@ -25,9 +25,31 @@
 
 .qty{
   width: 50px;
+  position: relative;
+  top: -3px;
 }
 
+
+
 .options{
+  input[type="checkbox"]{
+    display: inline;
+  }
+  h4{
+    padding-bottom:0.4em;
+  }
+  padding: 0.6em;
+  background: lightgrey;
+  border-radius: 3px;
+  margin-bottom: 1em;
+  &:hover{
+    cursor: pointer;
+    opacity: 0.9;
+  }
+}
+
+.selected{
+  background: lightgreen;
 }
 
 .reviews{
@@ -61,3 +83,12 @@
 
   }
 }
+
+
+
+
+
+
+
+
+

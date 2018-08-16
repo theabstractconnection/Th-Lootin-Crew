@@ -5,14 +5,20 @@
   <form>
     <% vessel_options.each_with_index do |vessel_option, index| %>
     <div  class="options" data-index=<%= index %>>
-      <input data-index=<%= index %> class="opt" type="checkbox" name="<%= vessel_option.option.id %>"/>
-      <label for="scales"><%= vessel_option.option.name %></label>
-      <div><%= vessel_option.option.description %> : </div>
-      <span ><%= vessel_option.option.price %></span><span> $</span>
-
-      <div style="display: inline-block;">
-        <input data-index=<%= index %> data-price=<%= vessel_option.option.price %> class="qty" style="display:none" type="text" name="<%= "#{vessel_option.option.id}_quantity" %>""/>
+      <div>
+        <input data-index=<%= index %> class="opt" type="checkbox" name="<%= vessel_option.option.id %>"/>
+        <h4 style="display: inline;"><%= vessel_option.option.name %> </h4>
+        <div style="display: inline-block;">
+          <input data-index=<%= index %> data-price=<%= vessel_option.option.price %> class="qty form-control input-sm" style="display:none" type="text" name="<%= "#{vessel_option.option.id}_quantity" %>""/>
+        </div>
+        <div style= "float:right;">
+          <span ><%= vessel_option.option.price %></span>
+          <span> $</span>
+        </div>
       </div>
+      <div><%= vessel_option.option.description %></div>
+
+
     </div>
     <% end %>
   </form>
