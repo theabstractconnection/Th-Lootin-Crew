@@ -16,6 +16,9 @@
     <% end %>
   </div>
   <div class="row padded">
+    <div id="map" class="map-show" data-markers="<%= @markers.to_json %>"></div>
+  </div>
+  <div class="row padded">
     <%= render 'vessels/reviews', vessel: @vessel%>
   </div>
 </div>
@@ -24,4 +27,7 @@
   <%= link_to 'Back', vessels_path, class: "btn btn-danger" %>
 </div>
 
+
 <%= javascript_pack_tag 'selected_options' %>
+
+
