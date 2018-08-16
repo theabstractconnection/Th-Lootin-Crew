@@ -1,7 +1,15 @@
 #map {
   flex: 0 0 450px;
-  height: 100vh;
+  // height: 100vh;
   position: sticky !important; /* !important to override Gmaps inline CSS */
   top: 0 !important;
   margin: 0;
+}
+
+.map-index {
+  height: 100vh;
+}
+
+.map-show {
+  height: 50vh;
 }

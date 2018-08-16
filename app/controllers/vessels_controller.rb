@@ -10,8 +10,8 @@ class VesselsController < ApplicationController
     @markers = @vessels_map.map do |vessel|
       {
         lat: vessel.latitude,
-        lng: vessel.longitude#,
-        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+        lng: vessel.longitude,
+        infoWindow: { content: render_to_string(partial: "/vessels/map_box", locals: { vessel: vessel }) }
       }
     end
   end
@@ -24,6 +24,12 @@ class VesselsController < ApplicationController
     @booking = Booking.new
     @review = Review.new
     @booking.selected_options.build
+    @markers =
+      [{
+        lat: @vessel.latitude,
+        lng: @vessel.longitude,
+        infoWindow: { content: render_to_string(partial: "/vessels/map_box", locals: { vessel: @vessel }) }
+      }]
   end
 
   # GET /vessels/new
