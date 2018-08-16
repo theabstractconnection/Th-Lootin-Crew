@@ -36,3 +36,4 @@ end
 
 gem 'faker'
 gem 'geocoder'
+gem 'algoliasearch-rails'

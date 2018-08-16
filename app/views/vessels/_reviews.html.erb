@@ -3,9 +3,7 @@
   <% vessel.reviews.each do |review|%>
   <div class="review center">
     <span><%= review.content %></span>
-    <% review.rating.to_i.times do %>
-    <i class="far fa-star"></i>
-    <% end %>
+    <%= render "shared/rating", thing: review %>
   </div>
   <% end %>
 </div>

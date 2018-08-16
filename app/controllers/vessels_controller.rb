@@ -4,14 +4,13 @@ class VesselsController < ApplicationController
 
   # GET /vessels
   def index
-    @vessels = Vessel.all
-    @vessels_map = Vessel.where.not(latitude: nil, longitude: nil)
+    @vessels = Vessel.where.not(latitude: nil, longitude: nil)
 
-    @markers = @vessels_map.map do |vessel|
+    @markers = @vessels.map do |vessel|
       {
         lat: vessel.latitude,
-        lng: vessel.longitude#,
-        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+        lng: vessel.longitude,
+        infoWindow: { content: render_to_string(partial: "/vessels/map_box", locals: { vessel: vessel }) }
       }
     end
   end
@@ -24,6 +23,12 @@ class VesselsController < ApplicationController
     @booking = Booking.new
     @review = Review.new
     @booking.selected_options.build
+    @markers =
+      [{
+        lat: @vessel.latitude,
+        lng: @vessel.longitude,
+        infoWindow: { content: render_to_string(partial: "/vessels/map_box", locals: { vessel: @vessel }) }
+      }]
   end
 
   # GET /vessels/new
@@ -70,6 +75,18 @@ class VesselsController < ApplicationController
     redirect_to vessels_url, notice: 'Vessel was successfully destroyed.'
   end
 
+  def search
+    Vessel.reindex
+    @vessels =  Vessel.search(params[:query])
+    @markers = @vessels.map do |vessel|
+     {
+      lat: vessel.latitude,
+        lng: vessel.longitude#,
+        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+      }
+    end
+    render :index, vessel: @vessel, markers:@markers
+  end
 
   private
   # Use callbacks to share common setup or constraints between actions.

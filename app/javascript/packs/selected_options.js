@@ -3,7 +3,7 @@ const opts = document.querySelectorAll(".opt")
 const qtys = document.querySelectorAll(".qty")
 
 opts.forEach((opt) => {
-  opt.addEventListener("click", (e)=>{
+    opt.parentNode.parentNode.classList.add("selected")
     const qty = document.querySelector(`input[name='${e.target.name}_quantity']`)
     const i = e.target.dataset.index
 
@@ -19,6 +19,7 @@ opts.forEach((opt) => {
       })
     }
     else {
+      opt.parentNode.parentNode.classList.remove("selected")
       const selectors = [`input[name='booking[selected_options_attributes][${i}][option_id]']`, `input[name='booking[selected_options_attributes][${i}][quantity]']`]
       qty.style = "display:none"
       selectors.forEach((v) => {
@@ -61,7 +62,6 @@ function updateprice() {
 
   opts_price =  opts_price.reduce((a, v) => a + v, 0)
   total_price = (diffDays * vessel_price.innerHTML) + opts_price;
-
   if (!isNaN(total_price)) {price.innerHTML =  `${total_price}`}
 }
 

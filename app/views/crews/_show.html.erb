@@ -4,9 +4,7 @@
     <% crews.each do |crew| %>
       <div class="review">
         <span><%= crew.name %></span>
-        <% crew.rating.to_i.times do %>
-        <i class="far fa-star"></i>
-        <% end %>
+        <%= render "shared/rating", thing: crew %>
       </div>
       <% end %>
   </div>

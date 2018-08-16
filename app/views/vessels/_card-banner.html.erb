@@ -8,9 +8,7 @@
     <span>$/Day</span>
   </div>
   <div class="vessel_review">
-    <% vessel.rating.to_i.times do %>
-    <i class="far fa-star"></i>
-    <% end %>
+    <%= render "shared/rating", thing: vessel %>
   </div>
   <% if current_user == vessel.user %>
     <div><%= link_to 'Edit', edit_vessel_path(@vessel), class: "btn btn-danger" %></div>
