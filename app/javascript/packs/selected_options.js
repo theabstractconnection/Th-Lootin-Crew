@@ -3,6 +3,7 @@ const opts = document.querySelectorAll(".opt")
 const qtys = document.querySelectorAll(".qty")
 
 opts.forEach((opt) => {
+  opt.addEventListener("click", (e)=>{
     opt.parentNode.parentNode.classList.add("selected")
     const qty = document.querySelector(`input[name='${e.target.name}_quantity']`)
     const i = e.target.dataset.index
