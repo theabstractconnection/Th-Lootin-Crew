@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+  get 'dashboard', to: 'pages#dashboard', as: :dashboard
   resources :vessels do
     resources :vessel_options, only: [:create, :destroy]
     resources :reviews, only: [:create, :destroy]
