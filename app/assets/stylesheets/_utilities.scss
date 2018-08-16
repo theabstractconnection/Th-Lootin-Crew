@@ -35,21 +35,24 @@
 }
 
 #booking{
-  padding: 2em;
+  background: white;
+  border-radius: 3px;
+  padding-bottom: 2em;
+  margin-top: 2em;
   position: relative;
   h2{
-    padding: 1.2em;
+    padding-top: 2em;
     padding-left: 0;
   }
   h3{
-    padding: 0.8em;
+    padding-top: 0.8em;
     padding-left: 0;
   }
   #price{
     position: absolute;
-    top: 149px;
+    top: 25px;
     text-align: center;
-    right: 5.2em;
+    right: 0;
     background-color: #EE5F5B;
     border-color: #ec4844;
     padding: 0.8em 2em;
