@@ -5,7 +5,7 @@ const qtys = document.querySelectorAll(".qty")
 
 opts.forEach((opt) => {
   opt.addEventListener("click", (e)=>{
-    // console.log(e.target.name)
+    opt.parentNode.parentNode.classList.add("selected")
     const qty = document.querySelector(`input[name='${e.target.name}_quantity']`)
 
     const i = e.target.dataset.index
@@ -32,6 +32,7 @@ opts.forEach((opt) => {
       // form.appendChild(i_q)
     }
     else {
+      opt.parentNode.parentNode.classList.remove("selected")
       const selectors = [`input[name='booking[selected_options_attributes][${i}][option_id]']`, `input[name='booking[selected_options_attributes][${i}][quantity]']`]
       qty.style = "display:none"
       selectors.forEach((v) => {
