@@ -8,5 +8,6 @@ Rails.application.routes.draw do
       resources :selected_options
     end
   end
+  post "search" => "vessels#search"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
