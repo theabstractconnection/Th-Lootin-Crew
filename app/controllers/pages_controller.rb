@@ -4,4 +4,11 @@ class PagesController < ApplicationController
   def home
     @vessels = Vessel.all.first(3);
   end
+
+  def dashboard
+    @bookings = current_user.bookings
+    @vessels = current_user.vessels
+  end
+
+
 end
