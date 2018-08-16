@@ -3,12 +3,12 @@
 <div class="container-fluid">
   <div class="row padded">
     <% if current_user == @vessel.user %>
-      <%= render 'configure',
+      <%= render 'vessels/configure',
         vessel: @vessel,
         vessel_options: @vessel_options,
         vessel_option: @vessel_option %>
     <% else %>
-      <%= render 'bookings/booking',
+      <%= render 'vessels/booking',
       vessel: @vessel,
       booking: @booking,
       vessel_options: @vessel_options,
@@ -16,7 +16,7 @@
     <% end %>
   </div>
   <div class="row padded">
-    <%= render 'reviews', vessel: @vessel%>
+    <%= render 'vessels/reviews', vessel: @vessel%>
   </div>
 </div>
 
