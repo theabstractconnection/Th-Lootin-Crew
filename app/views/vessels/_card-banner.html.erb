@@ -2,15 +2,16 @@
   <h1 class="text-center">
     <%= vessel.name %>
   </h1>
+    <div class="vessel_review">
+    <%= render "shared/rating", thing: vessel %>
+  </div>
   <h3><%= vessel.category %></h3>
   <div><%= vessel.description %></div>
   <div>
-    <span id="vessel_price"><%= vessel.price %></span>
-    <span>$/Day</span>
+    <h4 id="vessel_price"><%= vessel.price %> $/Day</h4>
+
   </div>
-  <div class="vessel_review">
-    <%= render "shared/rating", thing: vessel %>
-  </div>
+
   <% if current_user == vessel.user %>
     <div><%= link_to 'Edit', edit_vessel_path(@vessel), class: "btn btn-danger" %></div>
   <% end %>
