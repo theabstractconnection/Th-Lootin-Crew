@@ -6,6 +6,8 @@ class BookingsController < ApplicationController
 
 
   def show
+    @review = Review.new
+    @vessel = @booking.vessel
   end
 
   def create

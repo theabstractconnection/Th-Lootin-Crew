@@ -2,12 +2,10 @@
   <h3>Available Crews</h3>
   <div>
     <% crews.each do |crew| %>
-      <div class="review">
+      <div class="crews">
         <span><%= crew.name %></span>
         <%= render "shared/rating", thing: crew %>
       </div>
       <% end %>
   </div>
 </div>
-
-
