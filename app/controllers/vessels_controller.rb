@@ -79,10 +79,10 @@ class VesselsController < ApplicationController
     Vessel.reindex
     @vessels =  Vessel.search(params[:query])
     @markers = @vessels.map do |vessel|
-     {
-      lat: vessel.latitude,
+      {
+        lat: vessel.latitude,
         lng: vessel.longitude,
-        infoWindow: { content: render_to_string(partial: "/vessels/map_box", locals: { vessel: @vessel }) }
+        infoWindow: { content: render_to_string(partial: "/vessels/map_box", locals: { vessel: vessel }) }
       }
     end
     render :index, vessel: @vessel, markers:@markers
