@@ -4,11 +4,11 @@
   <div class="card-mybookings">
     <h2 >Vessel: <%= @booking.vessel.name %></h2>
     <h4>Total price: <%= @booking.price %> $</h4>
-      <div class="card-mybookings-dates">
+    <div class="card-mybookings-dates">
       <p><%= @booking.start_date%></p>
       <i class="fas fa-arrow-circle-right"></i>
       <p><%= @booking.end_date%></p>
-      </div>
+    </div>
 
     <h3>Options : </h3>
     <% @booking.selected_options.each do |se| %>
@@ -18,10 +18,16 @@
   <div><%= link_to 'My Dashboard', dashboard_path, class: "btn btn-danger" %></div>
 </div>
 
-<% if @booking.end_date.past?  %>
-<%= simple_form_for [@vessel, @review] do |f| %>
-  <%= f.input :content %>
-  <%= f.input :rating %>
-  <%= f.submit 'Add Review' %>
-<% end %>
-<% end %>
+<div class="container-fluid padded" style="padding-top: 3em;">
+  <div class="row">
+    <div class="col col-xs-12">
+      <% if @booking.end_date.past?  %>
+      <%= simple_form_for [@vessel, @review] do |f| %>
+      <%= f.input :content %>
+      <%= f.input :rating %>
+      <%= f.submit 'Add Review', class: "btn btn-danger" %>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
