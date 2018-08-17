@@ -15,7 +15,7 @@
 }
 
 .links{
-  margin: 0 auto;
+  margin: 1em auto;
   text-align: center;
 }
 
@@ -52,7 +52,6 @@
 
   h2{
     font-family: 'Aguafina Script', cursive;
-    padding-top: 2em;
     padding-left: 0;
     color: rgba(0,0,0,0.5);
   }
@@ -79,6 +78,7 @@ h1 {
 h2 {
   font-family: 'Merienda One', cursive;
   color: $topaz;
+  padding-top: 1em;
 }
 
 h3 {
@@ -95,10 +95,10 @@ h3 {
   h4{
     padding-bottom:0.4em;
   }
-  padding: 0.6em;
+  padding: 0.2em;
   background: transparent;
   border-radius: 3px;
-  margin-bottom: 1em;
+  // margin-bottom: 1em;
   &:hover{
     cursor: pointer;
     opacity: 0.9;
@@ -107,6 +107,8 @@ h3 {
 
 .selected{
   background: $satin-sheen-gold;
+  padding: 0.6em;
+  margin-bottom: 0.2em;
 }
 
 .reviews{
@@ -150,4 +152,8 @@ h3 {
 
 a:hover {
   text-decoration: none;
+}
+
+.nav-tabs > li:active > a {
+  background-color: $satin-sheen-gold;
 }
