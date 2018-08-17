@@ -2,14 +2,18 @@
 .vessel-card {
   padding: 15px;
   margin: 5px;
-  height: 30vh;
+  height: 200px;
   border-radius: 5px;
   box-shadow: 3px 3px 4px rgba(0,0,0,0.1);
   background-size: cover !important;
   position: relative;
   transition-duration: 1.2s;
   p {
-    color: white;
+    color: white !important;
+  }
+  h3 {
+    font-family: 'Merienda One' !important;
+    color: $topaz !important;
   }
 }
 
@@ -21,7 +25,7 @@
 }
 
 .vessel-card:hover {
-  transform: scale(1.05, 1.05);
+  transform: scale(1.03, 1.03);
   .vessel-card-face {
     opacity: 0;
   }
