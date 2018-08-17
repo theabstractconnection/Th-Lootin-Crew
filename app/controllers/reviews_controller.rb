@@ -17,6 +17,7 @@ class ReviewsController <  ApplicationController
 
     @vessel = Vessel.find(params[:vessel_id])
     set_rating(@vessel)
+    vessel.save!
 
     redirect_to vessel_path(params[:vessel_id])
   end
