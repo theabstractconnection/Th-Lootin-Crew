@@ -1,9 +1,9 @@
 class Vessel < ApplicationRecord
-    # include AlgoliaSearch
+  include AlgoliaSearch
 
-  # algoliasearch do
+  algoliasearch do
     # attribute :name, :description, :address
-  # end
+  end
 
 
   mount_uploader :photo, PhotoUploader
