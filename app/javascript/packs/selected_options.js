@@ -65,7 +65,7 @@ function updateprice() {
   if (isNaN(base_price)) {base_price = 0}
   total_price = base_price + opts_price;
   console.log(total_price)
-  if (!isNaN(total_price)) {price.innerHTML =  `${total_price}`}
+  if (!isNaN(total_price)) {price.innerHTML =  `${total_price} $`}
 }
 
 // todo make script tag conditional depending on user.vessel = vessel
