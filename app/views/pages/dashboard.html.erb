@@ -22,7 +22,13 @@
     </div>
 
     <div role="tabpanel" class="tab-pane" id="myvessels">
-    <h2>My vessels</h2>
+      <div class="container">
+        <div class="row">
+          <% @vessels.each do |vessel| %>
+            <%= render 'vessels/card', vessel: vessel %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 
