@@ -1,18 +1,32 @@
 .footer {
-  background: #F4F4F4;
+  background: $bistre;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100px;
+  height: 60px;
   padding: 0px 50px;
-  color: rgba(0,0,0,0.3);
 }
+
+.footer-copyright {
+  color: $tan;
+  opacity: 0.15;
+}
+
+.fa-skull {
+  opacity: 0.15;
+  color: $tan;
+  &:hover {
+    opacity: 1;
+    color: $topaz;
+  }
+}
+
 .footer-links {
   display: flex;
   align-items: center;
 }
 .footer-links a {
-  color: black;
+  color: $tan;
   opacity: 0.15;
   text-decoration: none;
   font-size: 24px;
@@ -20,4 +34,7 @@
 }
 .footer-links a:hover {
   opacity: 1;
+  color: $topaz;
 }
+
+

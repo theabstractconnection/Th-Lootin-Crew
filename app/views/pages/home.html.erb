@@ -1,7 +1,7 @@
 <%= render 'shared/banner' %>
 
 <div class="container-fluid">
-  <h1 class="text-center">Our best vessels!</h1>
+  <h2 class="text-center">Our best vessels!</h2>
   <div class="row">
     <% @vessels.each do |vessel| %>
       <%= render 'vessels/card', vessel: vessel %>
