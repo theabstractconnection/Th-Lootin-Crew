@@ -4,6 +4,7 @@ pwd = 'topsecret'
 cities = ["Eyl", "Raqqa", "Bordeaux", "Atlanta" ]
 crews = ["The Berserker Bandits", "The Brass Knuckle Plunderers", "The Seven Sails Plunderers", "The Talking Parrot Buccaneers", "The Pillagers of the Squid", "The Pirates of the Lost Shores", "The Pirates of the North Sea", "The Thunder Waves", "The Fishguts", "The Skull and Crossbones"]
 options = ["SUBMACHINE GUNS", "LIGHT MACHINE GUNS", "SNIPER RIFLE", "SHOTGUN", "PISTOL", "LAUNCHER"]
+options= options.map { |opt| opt.capitalize}
 vessels = ["Black Pearl", "Jolly Roger", "Adventure Galley", "Queen Anne's Revenge", "Fancy", "Whydah", "Royal Fortune"]
 img= ['https://i.pinimg.com/originals/ea/46/7f/ea467f6dc2dfdd48bfb6b57c1099d2a7.jpg', 'https://splash247.com/wp-content/uploads/2017/08/fugro-saltire.jpg', 'https://upload.wikimedia.org/wikipedia/commons/2/2f/USS_Constitution_underway%2C_August_19%2C_2012_by_Castle_Island_cropped.jpg', 'https://cloud.lovinmalta.com/images/uploads/2016/08/_blogWide/old-vessel.png?mtime=20160803085951']
 

@@ -3,7 +3,11 @@ class BookingsController < ApplicationController
   before_action :authenticate_user!, only: [:show, :create]
 
   # POST /vessels
+
+
   def show
+    @review = Review.new
+    @vessel = @booking.vessel
   end
 
   def create

@@ -1,0 +1,38 @@
+<h1>My Dashboard</h1>
+<div>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+
+    <li role="presentation" class="active"><a href="#mybookings" aria-controls="mybookings" role="tab" data-toggle="tab">My bookings</a></li>
+    <li role="presentation"><a href="#myvessels" aria-controls="myvessels" role="tab" data-toggle="tab">My vessels</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="mybookings">
+      <div class="container">
+        <div class="row">
+          <% @bookings.each do |booking| %>
+            <div class="col-xs-12 col-md-4">
+                <%= render 'shared/card-mybookings', booking: booking %>
+            </div>
+          <% end %>
+      </div>
+      </div>
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="myvessels">
+      <div class="container">
+        <div class="row">
+          <% @vessels.each do |vessel| %>
+            <%= render 'vessels/card', vessel: vessel %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+

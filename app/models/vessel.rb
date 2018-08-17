@@ -1,5 +1,5 @@
 class Vessel < ApplicationRecord
-    include AlgoliaSearch
+  include AlgoliaSearch
 
   algoliasearch do
     # attribute :name, :description, :address
