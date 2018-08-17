@@ -60,7 +60,10 @@ function updateprice() {
   let opts_price = Array.from(qtys).map(qty => qty.dataset.price * qty.value)
 
   opts_price =  opts_price.reduce((a, v) => a + v, 0)
-  total_price = (diffDays * vessel_price.innerHTML) + opts_price;
+  base_price = diffDays * vessel_price.innerHTML
+  console.log(base_price)
+  if (isNaN(base_price)) {base_price = 0}
+  total_price = base_price + opts_price;
   console.log(total_price)
   if (!isNaN(total_price)) {price.innerHTML =  `${total_price}`}
 }
