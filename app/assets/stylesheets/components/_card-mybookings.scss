@@ -1,7 +1,6 @@
 .card-mybookings {
   margin:10px;
-
-
+  transition-duration: 1.2s;
 }
 
 
@@ -24,6 +23,5 @@ padding:10px;
 text-align: center;
 padding:10px;
 display:flex;
-justify-content: space-around;
-color: darkgrey;
+justify-content: center;
 }
