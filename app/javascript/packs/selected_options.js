@@ -61,6 +61,9 @@ function updateprice() {
 
   opts_price =  opts_price.reduce((a, v) => a + v, 0)
   base_price = diffDays * vessel_price.innerHTML
+  console.log(diffDays)
+  console.log(vessel_price.innerHTML)
+
   console.log(base_price)
   if (isNaN(base_price)) {base_price = 0}
   total_price = base_price + opts_price;
