@@ -7,15 +7,15 @@ class PhotoUploader < CarrierWave::Uploader::Base
   process convert: 'jpg'
 
   version :card do
-    resize_to_fit 256, 256
+    cloudinary_transformation gravity: :auto, width: 256, height: 256, crop: :fill
   end
 
   version :card_wide do
-    cloudinary_transformation gravity: :center, width: 800, height: 800, crop: :fill
+    cloudinary_transformation gravity: :auto, width: 1200, height: 400, crop: :fill
   end
 
   version :avatar do
-    cloudinary_transformation effect: "brightness:30", radius: 20,
+    cloudinary_transformation  gravity: :auto, effect: "brightness:30", radius: 20,
       width: 150, height: 150, crop: :thumb, gravity: :face
   end
 
