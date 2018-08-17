@@ -3,17 +3,16 @@
     <h1>Well done Jack !</h1>
     <%= image_tag "welldonejack.gif", height: 400 %>
     <div class="card-mybookings">
-      <h2 >Vessel: <%= @booking.vessel.name %></h2>
-      <h4>Total price: <%= @booking.price %> $</h4>
+      <h2 ><%= @booking.vessel.name %></h2>
+      <h3>Price</h3>
+      <p><%= @booking.price %> $</p>
+      <h3>Date</h3>
       <div class="card-mybookings-dates">
-        <p><%= @booking.start_date%></p>
-        <i class="fas fa-arrow-circle-right"></i>
-        <p><%= @booking.end_date%></p>
+        <span><%= @booking.start_date%> <i class="fas fa-arrow-circle-right"></i> <%= @booking.end_date%></span>
       </div>
-
-      <h3>Options : </h3>
+      <h3>Options</h3>
       <% @booking.selected_options.each do |se| %>
-      <h4><%= Option.find(se.option_id).name %> - Quantity: <%= se.quantity%></h4>
+      <p><%= Option.find(se.option_id).name %> - Quantity: <%= se.quantity%></p>
       <% end %>
     </div>
     <div><%= link_to 'My Dashboard', dashboard_path, class: "btn btn-danger" %></div>

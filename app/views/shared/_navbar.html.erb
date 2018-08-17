@@ -1,4 +1,4 @@
-<div class="navbar-wagon">
+<div class="navbar-wagon navbar-fixed-top navbar-absolute">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
   <%= image_tag "piratelogo.png", height: 50 %>
@@ -11,7 +11,7 @@
 
     <!-- Links when logged in -->
 
-    <%= link_to 'New Vessel', new_vessel_path, class: "btn btn-danger"%>
+    <%= link_to 'New Vessel', new_vessel_path, style: 'color: #F4CD75' %>
 
     <!-- Avatar with dropdown menu -->
     <div class="navbar-wagon-item">
