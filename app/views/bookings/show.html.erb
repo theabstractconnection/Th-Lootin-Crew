@@ -1,13 +1,21 @@
-<div>
-  <div>Vessel: <%= @booking.vessel.name %></div>
-  <div>User: <%= @booking.user.email %></div>
-  <div>Price: <%= @booking.price %> $</div>
-  <div>
+<div class="confirmation">
+  <h1>Well done Jack !</h1>
+  <%= image_tag "welldonejack.gif", height: 400 %>
+  <div class="card-mybookings">
+    <h2 >Vessel: <%= @booking.vessel.name %></h2>
+    <h4>Total price: <%= @booking.price %> $</h4>
+      <div class="card-mybookings-dates">
+      <p><%= @booking.start_date%></p>
+      <i class="fas fa-arrow-circle-right"></i>
+      <p><%= @booking.end_date%></p>
+      </div>
+
+    <h3>Options : </h3>
     <% @booking.selected_options.each do |se| %>
-      <div>Option: <%= Option.find(se.option_id).name %></div>
-      <div>Quantity: <%= se.quantity%></div>
+    <h4><%= Option.find(se.option_id).name %> - Quantity: <%= se.quantity%></h4>
     <% end %>
   </div>
+  <div><%= link_to 'My Dashboard', dashboard_path, class: "btn btn-danger" %></div>
 </div>
 
 <% if @booking.end_date.past?  %>
