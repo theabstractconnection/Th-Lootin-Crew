@@ -37,7 +37,7 @@ opts.forEach((opt) => {
 qtys.forEach((qty) => {
   qty.addEventListener("change", (e)=>{
     const i = e.target.dataset.index
-
+    console.log(e.target.dataset.index)
     i_o = document.querySelector(`input[name='booking[selected_options_attributes][${i}][option_id]']`)
     i_q = document.querySelector(`input[name='booking[selected_options_attributes][${i}][quantity]']`)
     i_o.value = e.target.name.split("_")[0]
@@ -57,12 +57,14 @@ function updateprice() {
   let s =  new Date(start.value);
   let timeDiff = Math.abs(e.getTime() - s.getTime());
   let diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
-  let opts_price = Array.from(qtys).map((qty) => {
-    return qty.dataset.price * qty.value
-  })
+  let opts_price = Array.from(qtys).map(qty => qty.dataset.price * qty.value)
 
   opts_price =  opts_price.reduce((a, v) => a + v, 0)
-  total_price = (diffDays * vessel_price.innerHTML) + opts_price;
+  base_price = diffDays * vessel_price.innerHTML
+  console.log(base_price)
+  if (isNaN(base_price)) {base_price = 0}
+  total_price = base_price + opts_price;
+  console.log(total_price)
   if (!isNaN(total_price)) {price.innerHTML =  `${total_price}`}
 }
 
